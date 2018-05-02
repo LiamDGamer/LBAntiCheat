@@ -1,0 +1,14 @@
+every 4 seconds:
+	set {clickz} to true
+	wait  1 second
+	set {clickz} to false
+	loop all players:
+		delete {clickz.%loop-player%}	
+on left click:
+	{clickz} is true
+	add 1 to {clickz.%player%}
+	{clickz.%player%} > 5
+	kick the player due to "&8[&cLiamBotAC&8] &cCPS: %{clickz.%player%}%"
+on join:
+	clear {clickz.%player%}
+	
